@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cfhi0r50lfy2f"]
+
+[ext_resource type="Texture2D" uid="uid://i8grf6cinc6v" path="res://01_assets/icon.svg" id="1_hqr8u"]
+[ext_resource type="PackedScene" uid="uid://isjt5pnwwomu" path="res://02_scenes/02_objects/01_board/board.tscn" id="2_15x84"]
+
+[node name="Node2D" type="Node2D" unique_id=1021952430]
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=758154941]
+position = Vector2(188, 138)
+texture = ExtResource("1_hqr8u")
+
+[node name="Board" parent="." unique_id=449338046 instance=ExtResource("2_15x84")]
+position = Vector2(758, 242)
+boardRadius = 4
