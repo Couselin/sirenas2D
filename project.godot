@@ -14,6 +14,10 @@ config/name="sirenas2D"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://01_assets/icon.svg"
 
+[autoload]
+
+GlobalBoard="*uid://xjdxc7kwmeub"
+
 [display]
 
 window/stretch/mode="canvas_items"

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://isjt5pnwwomu"]
+
+[ext_resource type="Script" uid="uid://es528rrmtaov" path="res://02_scenes/02_objects/01_board/board.gd" id="1_h01q4"]
+
+[node name="Board" type="Node2D" unique_id=449338046]
+script = ExtResource("1_h01q4")
+boardRadius = 5
