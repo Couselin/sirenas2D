@@ -41,22 +41,22 @@ func move(dir:Vector3):
 
 func _input(event: InputEvent) -> void:
 	#temp for testing purposes
-	if event.is_action_pressed("ui_up"):
+	if event.is_action_pressed("test_e"):
 		move(GlobalBoard.dirNorthEast)
-	if event.is_action_pressed("ui_down"):
+	if event.is_action_pressed("test_z"):
 		move(GlobalBoard.dirSouthWest)
-	if event.is_action_pressed("ui_right"):
+	if event.is_action_pressed("test_d"):
 		move(GlobalBoard.dirEast)
-	if event.is_action_pressed("ui_left"):
+	if event.is_action_pressed("test_a"):
 		move(GlobalBoard.dirWest)
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("test_c"):
 		move(GlobalBoard.dirSouthEast)
-	if event.is_action_pressed("ui_text_backspace"):
+	if event.is_action_pressed("test_q"):
 		move(GlobalBoard.dirNorthWest)
 
 func _ready() -> void:
 	create_board()
-	get_tile(0,0,0).add_piece()
+	get_tile(0,0,0).add_piece("tower")
 
 func _process(_delta: float) -> void:
 	pass

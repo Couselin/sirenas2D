@@ -8,3 +8,10 @@ script = ExtResource("1_j0tpl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1397319377]
 texture = ExtResource("1_ojma6")
+
+[node name="LifeDisplay" type="Label" parent="." unique_id=1843560045]
+offset_top = -44.0
+offset_right = 40.0
+offset_bottom = -21.0
+text = "0"
+horizontal_alignment = 1
