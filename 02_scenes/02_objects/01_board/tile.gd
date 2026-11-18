@@ -13,7 +13,7 @@ func add_piece():
 func get_piece():
 	if isOccupied:
 		for i in get_children():
-			if "Piece" in i.get_name():
+			if "Piece" == GlobalFunctions.get_class_name(i):
 				return i
 	return false
 

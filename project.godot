@@ -17,6 +17,7 @@ config/icon="res://01_assets/icon.svg"
 [autoload]
 
 GlobalBoard="*uid://xjdxc7kwmeub"
+GlobalFunctions="*uid://tnj7jgrr5w0i"
 
 [display]
 
