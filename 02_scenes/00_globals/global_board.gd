@@ -41,3 +41,10 @@ func check_vector(vector:Vector3):
 		return true
 	else:
 		return false
+
+func contiguous_tiles(tile:Vector3):
+	var tiles: Array[Vector3]
+	tiles.resize(idDirections.size())
+	for i in range(tiles.size()):
+		tiles[i] = tile + dirDirections[i]
+	return tiles
