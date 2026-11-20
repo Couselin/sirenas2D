@@ -2,6 +2,8 @@ extends "res://02_scenes/01_characters_props/piece.gd"
 
 func take_damage(damageTaken:int):
 	super.take_damage(damageTaken)
+	if life <=0:
+		pass
 
 func change_tile(new_tile:Tile):
 	super.change_tile(new_tile)
