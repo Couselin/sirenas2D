@@ -28,10 +28,14 @@ func get_tile(x:int,y:int,z:int):
 			return i
 	return false
 
-
+func set_zoom():
+	var zoom:float = get_viewport_rect().size.y / (tileSize.y * (boardRadius + 1) * 2)
+	$Camera2D.zoom = Vector2(zoom,zoom)
+	print(zoom)
 
 func _ready() -> void:
 	create_board()
+	set_zoom()
 
 func _process(_delta: float) -> void:
 	pass
