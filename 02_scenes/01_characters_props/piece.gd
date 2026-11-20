@@ -16,13 +16,16 @@ func move():
 func attack():
 	pass
 
+func cause_damage(target:Piece):
+	target.take_damage(damage)
+
 func take_damage(damageTaken:int):
 	life -= damageTaken
 	if life <=0:
 		pass
 	pass
 
-func change_tile(new_tile):
+func change_tile(new_tile:Tile):
 	tile.isOccupied = false
 	tile = new_tile
 	tile.isOccupied = true

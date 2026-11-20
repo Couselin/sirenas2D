@@ -5,6 +5,7 @@
 
 [node name="Piece" unique_id=759563159 instance=ExtResource("1_jl30o")]
 script = ExtResource("2_6ugjp")
+life = 100
 
 [node name="Sprite2D" parent="." index="0" unique_id=1397319377]
 modulate = Color(0.39215687, 0.39215687, 0.39215687, 1)

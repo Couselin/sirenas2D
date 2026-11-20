@@ -28,35 +28,10 @@ func get_tile(x:int,y:int,z:int):
 			return i
 	return false
 
-func move(dir:Vector3):
-	#temp for testing purposes
-	for i in tiles:
-			if i.get_piece():
-				var piece:Piece = i.get_piece()
-				var newCoords = i.coordinates + dir
-				if get_tile(int(newCoords.x),int(newCoords.y),int(newCoords.z)):
-					var newTile:Tile = get_tile(int(newCoords.x),int(newCoords.y),int(newCoords.z))
-					piece.change_tile(newTile)
-					break
 
-func _input(event: InputEvent) -> void:
-	#temp for testing purposes
-	if event.is_action_pressed("test_e"):
-		move(GlobalBoard.dirNorthEast)
-	if event.is_action_pressed("test_z"):
-		move(GlobalBoard.dirSouthWest)
-	if event.is_action_pressed("test_d"):
-		move(GlobalBoard.dirEast)
-	if event.is_action_pressed("test_a"):
-		move(GlobalBoard.dirWest)
-	if event.is_action_pressed("test_c"):
-		move(GlobalBoard.dirSouthEast)
-	if event.is_action_pressed("test_q"):
-		move(GlobalBoard.dirNorthWest)
 
 func _ready() -> void:
 	create_board()
-	get_tile(0,0,0).add_piece("tower")
 
 func _process(_delta: float) -> void:
 	pass

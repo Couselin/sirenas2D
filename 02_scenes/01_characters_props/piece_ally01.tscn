@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://xk7fymijoxy7"]
 
 [ext_resource type="PackedScene" uid="uid://c3jro2i0xfdyw" path="res://02_scenes/01_characters_props/piece.tscn" id="1_wmhrw"]
+[ext_resource type="Script" uid="uid://dfoyoni8jxte0" path="res://02_scenes/01_characters_props/piece_ally_01.gd" id="2_p1w30"]
 
 [node name="Piece" unique_id=759563159 instance=ExtResource("1_wmhrw")]
+script = ExtResource("2_p1w30")
 life = 15
 damage = 8
-cost = 4
 
 [node name="Sprite2D" parent="." index="0" unique_id=1397319377]
 modulate = Color(1, 1, 0.78431374, 1)
