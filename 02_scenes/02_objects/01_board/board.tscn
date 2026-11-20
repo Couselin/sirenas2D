@@ -4,4 +4,6 @@
 
 [node name="Board" type="Node2D" unique_id=449338046]
 script = ExtResource("1_h01q4")
-boardRadius = 5
+boardRadius = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1373461260]
