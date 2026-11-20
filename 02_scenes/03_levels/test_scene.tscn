@@ -12,5 +12,5 @@ position = Vector2(188, 138)
 texture = ExtResource("1_hqr8u")
 
 [node name="Board" parent="." unique_id=449338046 instance=ExtResource("2_15x84")]
-position = Vector2(758, 242)
-boardRadius = 4
+position = Vector2(570, 321)
+boardRadius = 6

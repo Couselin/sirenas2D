@@ -6,9 +6,8 @@ func attack():
 	var directions = [direction,
 	GlobalBoard.dirDirections[GlobalBoard.dirDirections.find(direction)-2],
 	GlobalBoard.dirDirections[GlobalBoard.dirDirections.find(direction)-4]]
-	
 	for i in directions:
-		targetCoordinates += GlobalBoard.directional_ray(tile.coordinates,i,0,tile.get_board())
+		targetCoordinates += GlobalBoard.directional_ray(tile.coordinates,i,0,true,tile.get_board())
 	for i in targetCoordinates:
 		targets.append(tile.get_board().get_tile(i.x,i.y,i.z))
 	for i in targets:

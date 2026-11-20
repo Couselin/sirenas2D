@@ -4,7 +4,10 @@ class_name Piece
 @export var isAlly:bool = true
 @export var life:int
 @export var damage:int
+##For allies only
 @export var cost:int
+##For enemies only
+@export var movementRange:int
 
 var tile:Tile
 var direction:Vector3 = Vector3(0,0,0)
