@@ -4,11 +4,14 @@ class_name Piece
 @export var isAlly:bool = true
 @export var life:int
 @export var damage:int
+##For allies only
 @export var cost:int
+##For enemies only
+@export var movementRange:int
 
 var tile:Tile
-var direction:Vector3
-var tileOffset:Vector2 = (Vector2(0,0))
+var direction:Vector3 = Vector3(0,0,0)
+var tileOffset:Vector2 = Vector2(0,0)
 
 func move():
 	pass
@@ -21,9 +24,6 @@ func cause_damage(target:Piece):
 
 func take_damage(damageTaken:int):
 	life -= damageTaken
-	if life <=0:
-		pass
-	pass
 
 func change_tile(new_tile:Tile):
 	tile.isOccupied = false
@@ -31,6 +31,9 @@ func change_tile(new_tile:Tile):
 	tile.isOccupied = true
 	reparent(tile)
 	position = tileOffset
+
+func set_direction(new_direction:Vector3):
+	direction = new_direction
 
 func _ready() -> void:
 	tile = get_parent()
