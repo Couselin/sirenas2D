@@ -6,9 +6,6 @@ class_name Board
 const tileSize = Vector2(27.5,40)
 
 var tiles: Array[Tile] = []
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	create_board()
 
 func create_board():
 	for i in range(-boardRadius,boardRadius+1):
@@ -16,7 +13,6 @@ func create_board():
 			for k in range(-boardRadius,boardRadius+1):
 				if i + j + k == 0:
 					create_tile(i,j,k)
-			
 
 func create_tile(x:int,y:int,z:int):
 	var newTile = tileRef.instantiate() as Tile
@@ -26,6 +22,20 @@ func create_tile(x:int,y:int,z:int):
 	add_child(newTile)
 	tiles.append(newTile)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func get_tile(x:int,y:int,z:int):
+	for i in tiles:
+		if i.coordinates == Vector3(x,y,z):
+			return i
+	return false
+
+func set_zoom():
+	var zoom:float = get_viewport_rect().size.y / (tileSize.y * (boardRadius + 1) * 2)
+	$Camera2D.zoom = Vector2(zoom,zoom)
+	print(zoom)
+
+func _ready() -> void:
+	create_board()
+	set_zoom()
+
 func _process(_delta: float) -> void:
 	pass

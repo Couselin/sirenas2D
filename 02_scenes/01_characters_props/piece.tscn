@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c3jro2i0xfdyw"]
+
+[ext_resource type="Script" uid="uid://4wbogqfey8cv" path="res://02_scenes/01_characters_props/piece.gd" id="1_j0tpl"]
+[ext_resource type="Texture2D" uid="uid://chwaqqd066rhm" path="res://01_assets/01_sprites/01_characters_props/99_placeholders/alienYellow.png" id="1_ojma6"]
+
+[node name="Piece" type="Node2D" unique_id=759563159]
+script = ExtResource("1_j0tpl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1397319377]
+texture = ExtResource("1_ojma6")
+
+[node name="LifeDisplay" type="Label" parent="." unique_id=1843560045]
+offset_top = -44.0
+offset_right = 40.0
+offset_bottom = -21.0
+text = "0"
+horizontal_alignment = 1

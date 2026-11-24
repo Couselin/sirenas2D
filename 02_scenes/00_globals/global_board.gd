@@ -41,3 +41,32 @@ func check_vector(vector:Vector3):
 		return true
 	else:
 		return false
+
+func contiguous_tiles(tile:Vector3):
+	var tiles: Array[Vector3]
+	tiles.resize(idDirections.size())
+	for i in range(tiles.size()):
+		tiles[i] = tile + dirDirections[i]
+	return tiles
+
+func alternating_tiles(tile:Vector3, direction:int):
+	var tiles = contiguous_tiles(tile)
+	return [tiles[direction], tiles[direction-2], tiles[direction-4]]
+
+func directional_ray(tile:Vector3, direction:Vector3, range:int, collision:bool, board:Board):
+	var tiles: Array[Vector3]
+	if range > 0:
+		for i in range(1, range+1):
+			var newTile: Vector3 = tile + direction * i
+			if board.get_tile(newTile.x, newTile.y, newTile.z):
+				tiles.append(newTile)
+				if board.get_tile(newTile.x, newTile.y, newTile.z).isOccupied and collision:
+					break
+	else:
+		for i in range(1, board.boardRadius*2+1):
+			var newTile: Vector3 = tile + direction * i
+			if board.get_tile(newTile.x, newTile.y, newTile.z):
+				tiles.append(newTile)
+				if board.get_tile(newTile.x, newTile.y, newTile.z).isOccupied and collision:
+					break
+	return tiles

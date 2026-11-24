@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://87cmmg4p6djn"]
+
+[ext_resource type="PackedScene" uid="uid://c3jro2i0xfdyw" path="res://02_scenes/01_characters_props/piece.tscn" id="1_ihayh"]
+
+[node name="Piece" unique_id=759563159 instance=ExtResource("1_ihayh")]
+isAlly = false
+
+[node name="Sprite2D" parent="." index="0" unique_id=1397319377]
+modulate = Color(0.78431374, 0.78431374, 0.78431374, 1)
