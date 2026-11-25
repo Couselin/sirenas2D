@@ -94,3 +94,10 @@ func ray_between_tiles(tile1:Vector3, tile2:Vector3):
 	for i in range(1, distance):
 		tiles[i-1] = tile1 + round_vector((tile2 - tile1) * 1/distance * i)
 	return tiles
+
+func tiles_in_range(tile:Vector3, range:int):
+	var tiles:Array[Vector3]
+	for i in range(-range, range+1):
+		for j in range (max(-range, -i-range),min(range+1, -i+range+1)):
+			tiles.append(Vector3(i,j,-i-j)+tile)
+	return tiles

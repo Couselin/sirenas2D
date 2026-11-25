@@ -18,9 +18,12 @@ func move(dir:Vector3):
 					break
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("test_e"):
+	if event.is_action_pressed("test_q"):
 		controlledPiece.attack()
-		'move(GlobalBoard.dirNorthEast)
+	if event.is_action_pressed("test_e"):
+		controlledPiece.move()
+	'if event.is_action_pressed("test_e"):
+		move(GlobalBoard.dirNorthEast)
 	if event.is_action_pressed("test_z"):
 		move(GlobalBoard.dirSouthWest)
 	if event.is_action_pressed("test_d"):
