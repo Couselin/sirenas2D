@@ -8,6 +8,7 @@ script = ExtResource("2_2gbek")
 isAlly = false
 life = 10
 damage = 5
+movementRange = 3
 
 [node name="Sprite2D" parent="." index="0" unique_id=1397319377]
 modulate = Color(0.78431374, 0.78431374, 1, 1)
