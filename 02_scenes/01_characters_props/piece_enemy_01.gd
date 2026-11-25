@@ -1,8 +1,19 @@
 extends "res://02_scenes/01_characters_props/piece.gd"
 
 func move():
-	change_tile(tile)
-	set_direction(direction)
+	for i in range(movementRange):
+		var targets: Array[Tile]
+		var tiles = GlobalBoard.ray_between_tiles(tile.coordinates, Vector3(0,0,0))
+		var tileDirection:Tile = tile.get_board().get_tile(tiles[0].x,tiles[0].y,tiles[0].z)
+		direction = tileDirection.coordinates - tile.coordinates
+		if tileDirection.isOccupied:
+			
+			pass
+		else:
+			change_tile(tileDirection)
+			set_direction(direction)
+			pass
+		await get_tree().create_timer(1).timeout
 
 func attack():
 	var targetCoordinates: Array[Vector3]

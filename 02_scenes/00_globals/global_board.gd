@@ -42,6 +42,17 @@ func check_vector(vector:Vector3):
 	else:
 		return false
 
+func round_vector(vector:Vector3):
+	var rounded_vector = round(vector)
+	var dif = abs(vector - rounded_vector)
+	if dif.x > dif.y and dif.x > dif.z:
+		rounded_vector.x = - rounded_vector.y - rounded_vector.z
+	elif dif.y > dif.z:
+		rounded_vector.y = - rounded_vector.x - rounded_vector.z
+	else:
+		rounded_vector.z = - rounded_vector.x - rounded_vector.y
+	return rounded_vector
+
 func contiguous_tiles(tile:Vector3):
 	var tiles: Array[Vector3]
 	tiles.resize(idDirections.size())
@@ -69,4 +80,17 @@ func directional_ray(tile:Vector3, direction:Vector3, range:int, collision:bool,
 				tiles.append(newTile)
 				if board.get_tile(newTile.x, newTile.y, newTile.z).isOccupied and collision:
 					break
+	return tiles
+
+func distance_between_tiles(tile1:Vector3, tile2:Vector3):
+	var difference = abs(Vector3(tile2.x-tile1.x, tile2.y-tile1.y, tile2.z-tile1.z))
+	var distance = max(difference.x, difference.y, difference.z)
+	return distance
+
+func ray_between_tiles(tile1:Vector3, tile2:Vector3):
+	var distance = distance_between_tiles(tile1, tile2)
+	var tiles: Array[Vector3]
+	tiles.resize(distance-1)
+	for i in range(1, distance):
+		tiles[i-1] = tile1 + round_vector((tile2 - tile1) * 1/distance * i)
 	return tiles
