@@ -5,7 +5,7 @@ func move():
 		if GlobalBoard.distance_between_tiles(tile.coordinates, Vector3(0,0,0)) > 1:
 			var tiles = GlobalBoard.ray_between_tiles(tile.coordinates, Vector3(0,0,0))
 			var tileDirection:Tile = tile.get_board().get_tile(tiles[0].x,tiles[0].y,tiles[0].z)
-			direction = tileDirection.coordinates - tile.coordinates
+			set_direction(tileDirection.coordinates - tile.coordinates)
 			var altDirections
 			if tileDirection.isOccupied:
 				for j in range(0,GlobalBoard.dirDirections.size()):
@@ -19,15 +19,12 @@ func move():
 						i = movementRange
 					else:
 						change_tile(tile.get_board().get_tile(altTile.x,altTile.y,altTile.z))
-						direction = GlobalBoard.dirDirections[altDirections[1]]
-						set_direction(direction)
+						set_direction(GlobalBoard.dirDirections[altDirections[1]])
 				else: 
 					change_tile(tile.get_board().get_tile(altTile.x,altTile.y,altTile.z))
-					direction = GlobalBoard.dirDirections[altDirections[0]]
-					set_direction(direction)
+					set_direction(GlobalBoard.dirDirections[altDirections[0]])
 			else:
 				change_tile(tileDirection)
-				set_direction(direction)
 			await get_tree().create_timer(Global.movementCadence).timeout
 
 func attack():

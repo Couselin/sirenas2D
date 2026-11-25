@@ -19,7 +19,7 @@ func move(dir:Vector3):
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("test_e"):
-		controlledPiece.move()
+		controlledPiece.attack()
 		'move(GlobalBoard.dirNorthEast)
 	if event.is_action_pressed("test_z"):
 		move(GlobalBoard.dirSouthWest)
@@ -35,7 +35,7 @@ func _input(event: InputEvent) -> void:
 func _ready() -> void:
 	board.get_tile(0,0,0).add_piece("tower")
 	board.get_tile(0,1,-1).add_piece("ally01")
-	board.get_tile(0,3,-3).add_piece("enemy01")
+	board.get_tile(0,3,-3).add_piece("enemy02")
 	controlledPiece = board.get_tile(0,3,-3).get_piece()
 	controlledPiece.set_direction(GlobalBoard.dirNorthEast)
 	pass
