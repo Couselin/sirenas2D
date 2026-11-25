@@ -2,18 +2,33 @@ extends "res://02_scenes/01_characters_props/piece.gd"
 
 func move():
 	for i in range(movementRange):
-		var targets: Array[Tile]
-		var tiles = GlobalBoard.ray_between_tiles(tile.coordinates, Vector3(0,0,0))
-		var tileDirection:Tile = tile.get_board().get_tile(tiles[0].x,tiles[0].y,tiles[0].z)
-		direction = tileDirection.coordinates - tile.coordinates
-		if tileDirection.isOccupied:
-			
-			pass
-		else:
-			change_tile(tileDirection)
-			set_direction(direction)
-			pass
-		await get_tree().create_timer(1).timeout
+		if GlobalBoard.distance_between_tiles(tile.coordinates, Vector3(0,0,0)) > 1:
+			var tiles = GlobalBoard.ray_between_tiles(tile.coordinates, Vector3(0,0,0))
+			var tileDirection:Tile = tile.get_board().get_tile(tiles[0].x,tiles[0].y,tiles[0].z)
+			direction = tileDirection.coordinates - tile.coordinates
+			var altDirections
+			if tileDirection.isOccupied:
+				for j in range(0,GlobalBoard.dirDirections.size()):
+					if GlobalBoard.dirDirections[j] == direction:
+						altDirections = [j-1, j-5]
+						break
+				var altTile = tile.coordinates + GlobalBoard.dirDirections[altDirections[0]]
+				if tile.get_board().get_tile(altTile.x,altTile.y,altTile.z).isOccupied:
+					altTile = tile.coordinates + GlobalBoard.dirDirections[altDirections[1]]
+					if tile.get_board().get_tile(altTile.x,altTile.y,altTile.z).isOccupied:
+						i = movementRange
+					else:
+						change_tile(tile.get_board().get_tile(altTile.x,altTile.y,altTile.z))
+						direction = GlobalBoard.dirDirections[altDirections[1]]
+						set_direction(direction)
+				else: 
+					change_tile(tile.get_board().get_tile(altTile.x,altTile.y,altTile.z))
+					direction = GlobalBoard.dirDirections[altDirections[0]]
+					set_direction(direction)
+			else:
+				change_tile(tileDirection)
+				set_direction(direction)
+			await get_tree().create_timer(Global.movementCadence).timeout
 
 func attack():
 	var targetCoordinates: Array[Vector3]
