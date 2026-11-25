@@ -24,6 +24,11 @@ GlobalFunctions="*uid://tnj7jgrr5w0i"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+Ally=""
+Enemy=""
+
 [input]
 
 test_q={
