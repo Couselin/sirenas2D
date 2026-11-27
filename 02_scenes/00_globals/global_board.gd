@@ -64,6 +64,13 @@ func alternating_tiles(tile:Vector3, direction:int):
 	var tiles = contiguous_tiles(tile)
 	return [tiles[direction], tiles[direction-2], tiles[direction-4]]
 
+func diagonal_tiles(tile:Vector3):
+	var tiles: Array[Vector3]
+	tiles.resize(idDiagDirections.size())
+	for i in range(tiles.size()):
+		tiles[i] = tile + dirDiagDirections[i]
+	return tiles
+
 func directional_ray(tile:Vector3, direction:Vector3, range:int, collision:bool, board:Board):
 	var tiles: Array[Vector3]
 	if range > 0:
