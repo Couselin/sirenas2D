@@ -18,6 +18,7 @@ config/icon="res://01_assets/icon.svg"
 
 GlobalBoard="*uid://xjdxc7kwmeub"
 Global="*uid://tnj7jgrr5w0i"
+GlobalAnims="*uid://52027dpxfsol"
 
 [display]
 

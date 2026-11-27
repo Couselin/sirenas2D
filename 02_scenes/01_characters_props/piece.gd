@@ -31,6 +31,7 @@ func change_tile(new_tile:Tile):
 	tile.isOccupied = true
 	reparent(tile)
 	position = tileOffset
+	GlobalAnims.jump($Sprite2D)
 
 func set_direction(new_direction:Vector3):
 	direction = new_direction
